@@ -1,0 +1,10 @@
+[Unit]
+Description=BLE HID Keyboard Peripheral
+After=bluetooth.service
+[Service]
+ExecStartPre=/usr/lib/ble-hid-keyboard/bluetooth-init.sh
+ExecStart=/usr/lib/ble-hid-keyboard/venv/bin/python3 /usr/lib/ble-hid-keyboard/gatt_server.py
+Type=exec
+
+[Install]
+WantedBy=bluetooth.target
